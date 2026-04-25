@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="BalazorBlog.WebApi/BalazorBlog.WebApi.csproj" Id="87f3c342-bc6b-4d73-96b3-33a090401f8b" />
     <Project Path="BlazerBlog.Domain/BlazorBlog.Domain.csproj" Id="a08cfb65-0eb5-44bf-8b3a-7b776ffcf72c" />
     <Project Path="BlazorBlog.Application/BlazorBlog.Application.csproj" Id="a91279ea-1fbb-441b-ba6d-792452b39bc0" />
     <Project Path="BlazorBlog.Infrastructure/BlazorBlog.Infrastructure.csproj" Id="63b30317-0cb1-45ce-8e2c-476bbee539e6" />

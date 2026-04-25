@@ -1,0 +1,6 @@
+@BalazorBlog.WebApi_HostAddress = http://localhost:5164
+
+GET {{BalazorBlog.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
