@@ -624,9 +624,6 @@
   .min-w-9 {
     min-width: calc(var(--spacing) * 9);
   }
-  .flex-1 {
-    flex: 1;
-  }
   .flex-shrink {
     flex-shrink: 1;
   }
@@ -799,9 +796,6 @@
   .border-black {
     border-color: var(--color-black);
   }
-  .border-blue-600 {
-    border-color: var(--color-blue-600);
-  }
   .border-slate-300 {
     border-color: var(--color-slate-300);
   }
@@ -810,9 +804,6 @@
   }
   .bg-black {
     background-color: var(--color-black);
-  }
-  .bg-blue-600 {
-    background-color: var(--color-blue-600);
   }
   .bg-transparent {
     background-color: transparent;
@@ -855,9 +846,6 @@
   }
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
-  }
-  .px-3\.5 {
-    padding-inline: calc(var(--spacing) * 3.5);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
@@ -1090,11 +1078,6 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .transition-all {
-    transition-property: all;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
@@ -1121,13 +1104,6 @@
   .focus-within\:outline-blue-600 {
     &:focus-within {
       outline-color: var(--color-blue-600);
-    }
-  }
-  .hover\:bg-blue-700 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-blue-700);
-      }
     }
   }
   .hover\:text-blue-700 {
@@ -1233,11 +1209,6 @@
       padding-inline: calc(var(--spacing) * 8);
     }
   }
-  .lg\:ml-4 {
-    @media (width >= 64rem) {
-      margin-left: calc(var(--spacing) * 4);
-    }
-  }
   .lg\:ml-12 {
     @media (width >= 64rem) {
       margin-left: calc(var(--spacing) * 12);
@@ -1256,59 +1227,6 @@
   .lg\:flex-row {
     @media (width >= 64rem) {
       flex-direction: row;
-    }
-  }
-  .dark\:border-neutral-700 {
-    @media (prefers-color-scheme: dark) {
-      border-color: var(--color-neutral-700);
-    }
-  }
-  .dark\:bg-neutral-800 {
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-neutral-800);
-    }
-  }
-  .dark\:bg-neutral-900 {
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-neutral-900);
-    }
-  }
-  .dark\:fill-slate-50 {
-    @media (prefers-color-scheme: dark) {
-      fill: var(--color-slate-50);
-    }
-  }
-  .dark\:text-slate-50 {
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-slate-50);
-    }
-  }
-  .dark\:outline-neutral-700 {
-    @media (prefers-color-scheme: dark) {
-      outline-color: var(--color-neutral-700);
-    }
-  }
-  .dark\:hover\:text-blue-400 {
-    @media (prefers-color-scheme: dark) {
-      &:hover {
-        @media (hover: hover) {
-          color: var(--color-blue-400);
-        }
-      }
-    }
-  }
-  .dark\:max-lg\:border-neutral-700 {
-    @media (prefers-color-scheme: dark) {
-      @media (width < 64rem) {
-        border-color: var(--color-neutral-700);
-      }
-    }
-  }
-  .dark\:max-lg\:bg-neutral-900 {
-    @media (prefers-color-scheme: dark) {
-      @media (width < 64rem) {
-        background-color: var(--color-neutral-900);
-      }
     }
   }
 }
