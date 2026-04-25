@@ -2,6 +2,7 @@
   <Folder Name="/src/">
     <Project Path="BlazerBlog.Domain/BlazorBlog.Domain.csproj" Id="a08cfb65-0eb5-44bf-8b3a-7b776ffcf72c" />
     <Project Path="BlazorBlog.Application/BlazorBlog.Application.csproj" Id="a91279ea-1fbb-441b-ba6d-792452b39bc0" />
+    <Project Path="BlazorBlog.Infrastructure/BlazorBlog.Infrastructure.csproj" Id="63b30317-0cb1-45ce-8e2c-476bbee539e6" />
     <Project Path="BlazorBlog.Server/BlazorBlog.Server.csproj" Id="5ef7309e-03cf-444d-bb26-0bd2c6ab989d" />
   </Folder>
 </Solution>

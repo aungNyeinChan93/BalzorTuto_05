@@ -1,4 +1,5 @@
 ﻿using BlazorBlog.Application.Services;
+using BlazorBlog.Domain.Repositries;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

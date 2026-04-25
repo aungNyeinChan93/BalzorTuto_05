@@ -1,4 +1,5 @@
 ﻿using BlazorBlog.Domain.Articles;
+using BlazorBlog.Domain.Repositries;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,12 +8,17 @@ namespace BlazorBlog.Application.Services
 {
     public class ArticleService : IArticleService
     {
+        private IArticleRepositry _articleRepositry;
+
+        public ArticleService(IArticleRepositry articleRepositry)
+        {
+            this._articleRepositry = articleRepositry;
+        }
+
         public async Task<List<Article>?> GetAllArticleAsync()
         {
-            return new List<Article>()
-            {
-                new Article{ArticleId = 1,Content="test content",Title = "test title"},
-            };
+            var articles = await _articleRepositry.GetAllArticleAsync();
+            return articles;
         }
 
         public async Task<Article?> GetArticleAsync()

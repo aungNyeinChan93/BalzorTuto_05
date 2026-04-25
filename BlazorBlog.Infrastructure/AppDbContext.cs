@@ -1,19 +1,17 @@
-﻿using BlazorBlog.Server.Models;
+﻿using BlazorBlog.Domain.Articles;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace BlazorBlog.Server.Data
+namespace BlazorBlog.Infrastructure
 {
     public class AppDbContext :DbContext
     {
         public AppDbContext() { }
-
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
-        {
+        { }
 
-        }
-
-        public DbSet<Category> Categories { get; set; }
-
-
+        public DbSet<Article> Articles { get; set; }
     }
 }
