@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="BlazorBlog.Server/BlazorBlog.Server.csproj" Id="5ef7309e-03cf-444d-bb26-0bd2c6ab989d" />
+  </Folder>
+</Solution>
