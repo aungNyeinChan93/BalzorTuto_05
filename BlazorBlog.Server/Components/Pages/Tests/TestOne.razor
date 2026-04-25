@@ -1,0 +1,21 @@
+﻿@page "/tests/one"
+@inject IArticleService ArticleService;
+
+<PageTitle>Test One</PageTitle>
+<section>
+
+    @foreach (var article in articles)
+    {
+        <p @key="@article.ArticleId">@article.Title || @article.Content</p>
+    }
+
+</section>
+
+@code {
+    public List<Article> articles { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        articles =await ArticleService.GetAllArticleAsync() ?? new List<Article>();
+    }
+}

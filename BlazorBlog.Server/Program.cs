@@ -2,16 +2,21 @@ using BlazorBlog.Server.Components;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using BlazorBlog.Server.Data;
+using BlazorBlog.Application.Services;
+using BlazorBlog.Application;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Add services to the container.
 builder.Services.AddDbContextFactory<AppDbContext2Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppDbContext2Context") ?? throw new InvalidOperationException("Connection string 'AppDbContext2Context' not found.")));
 
 builder.Services.AddQuickGridEntityFrameworkAdapter();
-
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+//builder.Services.AddScoped<ArticleService>();
+builder.Services.AddApplication();
 
-// Add services to the container.
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
