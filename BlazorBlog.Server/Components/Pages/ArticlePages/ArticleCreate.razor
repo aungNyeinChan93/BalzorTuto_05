@@ -1,0 +1,61 @@
+﻿@page "/articles/create"
+@inject IArticleService ArticleService;
+@inject NavigationManager NavigationManager;
+
+<PageTitle>Article Create</PageTitle>
+
+
+<section>
+
+    <h3>ArticleCreate</h3>
+    
+    @if (article is not null)
+    {
+        <EditForm FormName="create" Enhance Model="@article" class="mt-6 px-4" OnValidSubmit="CreateSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="mx-auto max-w-sm space-y-4">
+                <div>
+                    <label for="title"
+                           class="mb-2 inline-block text-sm font-medium text-slate-900">Title</label>
+                    <InputText @bind-Value="article.Title" type="text" id="title"
+                               class="w-full rounded-md bg-white px-3 py-2.5 text-sm text-slate-900 outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600" />
+                    <ValidationMessage For="() => article.Title" />
+                </div>
+                <div>
+                    <label for="content"
+                           class="mb-2 inline-block text-sm font-medium text-slate-900">Content</label>
+                    <InputText @bind-Value="article.Content" type="text" id="content"
+                               class="w-full rounded-md bg-white px-3 py-2.5 text-sm text-slate-900 outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600" />
+                    <ValidationMessage For="() => article.Content" />
+                </div>
+                <button type="submit"
+                        class="!mt-2 cursor-pointer rounded-md border border-blue-600 bg-blue-600 px-3.5 py-2 text-sm font-semibold tracking-wide text-white transition-all hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                    Create
+                </button>
+            </div>
+        </EditForm>
+    }
+
+</section>
+
+
+
+
+@code {
+    [SupplyParameterFromForm(FormName ="create")]
+    public Article? article { get; set; } = new Article{Title = "",Content =""};
+
+
+    private async Task CreateSubmit()
+    {
+        if (article is not null)
+        {   
+            var result = await ArticleService.CreatArticleAsync(article);
+            if (result )
+            {
+                NavigationManager.NavigateTo("/articles");
+            }
+        }
+    }
+}

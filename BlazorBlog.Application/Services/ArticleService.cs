@@ -21,26 +21,28 @@ namespace BlazorBlog.Application.Services
             return articles;
         }
 
-        public async Task<Article?> GetArticleAsync()
+        public async Task<Article?> GetArticleAsync(int id)
         {
-            return default!;
+            var article = await _articleRepositry.GetArticleAsync(id);
+            return article;
         }
 
         public async Task<bool> CreatArticleAsync(Article article)
         {
-            return default!;
+            var isSuccess = await _articleRepositry.CreateArticleAsync(article);
+            return isSuccess;
         }
 
         public async Task<bool> UpdateArticleAsync(int id, Article article)
         {
-            return default!;
-
+            var result = await _articleRepositry.UpdateArticleAsync(id, article);
+            return result;
         }
 
         public async Task<bool> DeleteArticleAsync(int id)
         {
-            return default!;
-
+            var result = await _articleRepositry.DeleteArticleAsync(id);
+            return result;
         }
     }
 }

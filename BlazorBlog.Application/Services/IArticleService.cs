@@ -7,7 +7,7 @@ namespace BlazorBlog.Application.Services
         Task<bool> CreatArticleAsync(Article article);
         Task<bool> DeleteArticleAsync(int id);
         Task<List<Article>?> GetAllArticleAsync();
-        Task<Article?> GetArticleAsync();
+        Task<Article?> GetArticleAsync(int id);
         Task<bool> UpdateArticleAsync(int id, Article article);
     }
 }

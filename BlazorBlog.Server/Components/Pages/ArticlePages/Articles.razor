@@ -1,0 +1,45 @@
+﻿@page "/articles"
+@using BlazorBlog.Server.Components.Pages.ArticlePages._components
+@inject IArticleService ArticleService;
+
+<PageTitle>Articles</PageTitle>
+
+<section>
+    <h3 class="my-4 p-2 text-2xl text-indigo-500">Articles</h3>
+
+    <NavLink href="/articles/create" class="my-1 rounded-sm bg-cyan-200 p-2 text-green-400" >Create Article</NavLink>
+
+    @if (articles is null)
+    {
+        <div
+          class="flex flex-col gap-3 rounded-md border border-green-100 bg-green-50 p-3 text-sm sm:flex-row sm:items-center dark:border-green-800/40 dark:bg-green-900/20"
+          role="alert">
+          <p class="font-medium text-green-900 dark:text-green-300">Success!</p>
+          <p class="text-green-900 dark:text-green-400">
+             Loading ...
+          </p>
+        </div>
+    }
+    else
+    {
+        <div class="my-2 grid min-h-100 grid-cols-4 gap-2 rounded-2xl bg-green-200 p-2 px-4">
+            @foreach (var article in articles)
+            {
+                <ArticleCardComponent  article="article"/>
+            }
+        </div>
+    }
+</section>
+
+@code {
+    public List<Article>? articles { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var res = await ArticleService.GetAllArticleAsync();
+        if (res is not null)
+        {
+            articles = res;
+        }
+    }
+}

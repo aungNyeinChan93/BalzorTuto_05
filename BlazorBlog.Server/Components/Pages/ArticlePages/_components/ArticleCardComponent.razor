@@ -1,0 +1,33 @@
+﻿@rendermode InteractiveServer
+@inject IArticleService ArticleService;
+@inject NavigationManager NavigationManager;
+@if (article is not null)
+{  
+    <div class="mx-auto mt-6 max-h-[200px] w-full max-w-sm rounded-lg border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+        <div>
+            <h3 class="text-base font-semibold text-slate-900">@article.Title</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                @article.Content
+            </p>
+        </div>
+        <NavLink href="@($"/articles/edit/{article.ArticleId}")"
+               class="mt-6 inline-block cursor-pointer rounded-md border border-red-600 bg-green-600 px-3.5 py-2 text-sm font-semibold text-white transition-all hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+            Edit
+        </NavLink>
+        <button @onclick="()=>DeleteArticle(article.ArticleId)" type="button" class="mt-6 inline-block cursor-pointer rounded-md border border-red-600 bg-red-600 px-3.5 py-2 text-sm font-semibold text-white transition-all hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">Delete</button>
+    </div>
+}
+
+@code{
+    [Parameter]
+    public Article article { get; set; } = default!;
+
+    private async Task DeleteArticle(int id)
+    {
+        var result =await ArticleService.DeleteArticleAsync(id);
+        if (result)
+        {
+            NavigationManager.Refresh();
+        }
+    }
+}
