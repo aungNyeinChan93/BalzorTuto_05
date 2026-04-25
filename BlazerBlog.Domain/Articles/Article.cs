@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BlazorBlog.Domain.Abstracts;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BlazorBlog.Domain.Articles
 {
-    public class Article
+    public class Article : Entity 
     {
         public int ArticleId { get; set; }
 

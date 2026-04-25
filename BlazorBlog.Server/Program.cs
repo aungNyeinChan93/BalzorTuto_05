@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using BlazorBlog.Server.Data;
 using BlazorBlog.Application.Services;
 using BlazorBlog.Application;
+using BlazorBlog.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContextFactory<AppDbContext2Context>(options =>
 builder.Services.AddQuickGridEntityFrameworkAdapter();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 //builder.Services.AddScoped<ArticleService>();
+builder.Services.AddInferstructure(builder.Configuration);
 builder.Services.AddApplication();
 
 
