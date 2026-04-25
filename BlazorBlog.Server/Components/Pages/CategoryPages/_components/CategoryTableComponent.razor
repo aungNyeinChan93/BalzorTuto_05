@@ -1,0 +1,54 @@
+﻿
+
+@if (categories is not null)
+{
+    <table class="mx-auto w-full max-w-7xl">
+        <thead class="border-b border-slate-300 text-left text-sm font-semibold whitespace-nowrap text-slate-900">
+            <tr>
+                <th scope="col" class="px-3 py-3.5 pl-0">No</th>
+                <th scope="col" class="px-3 py-3.5">Name</th>
+                <th scope="col" class="px-3 py-3.5 pr-0">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody class="divide-y divide-slate-200 text-sm">
+            @foreach (var category in categories)
+            {
+                <tr @key="category.CategoryId">
+                    <td class="px-3 py-4 pl-0 font-medium whitespace-nowrap text-slate-900">
+                        @category.CategoryId
+                    </td>
+                    <td class="px-3 py-4 text-slate-500">
+                        @category.Name
+                    </td>
+                 
+                    <td class="flex gap-3 px-3 py-4 pr-0">
+                        <button type="button"
+                                class="cursor-pointer rounded text-sm text-blue-700 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                                aria-label="Edit John Doe">
+                            Edit
+                        </button>
+                        <button type="button"
+                                class="cursor-pointer rounded text-sm text-red-700 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
+                                aria-label="Delete John Doe">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <p>Loading ...</p>
+}
+
+
+
+@code{
+    [Parameter]
+    public List<Category> categories { get; set; } = default!;
+
+}
